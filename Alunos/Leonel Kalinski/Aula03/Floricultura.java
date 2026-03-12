@@ -57,7 +57,7 @@ public class Floricultura{
         double qtd = scan.nextDouble();
         System.out.println("qual o valor da planta");
         double preco = scan.nextDouble();
-        if(qtd>=10) {preco = preco*0.5;}
+        if (qtd>=10) {preco = preco*0.5;}
         double valorTotal = preco * qtd;
         System.out.println("O valor Total a ser pago e:" + valorTotal);
         RegistroDeVendas r = new RegistroDeVendas(qtd, preco, valorTotal);
