@@ -43,10 +43,10 @@ public class Metodos {
                 break;
             case 0:
                 System.out.println("Ate a proxima!");
-                System.out.println("----------FIM----------");
+                System.out.println("---------------------FIM---------------------");
                 break;
             default:
-                System.out.println("ERRO: Favor escolher uma opcao valida!\n");
+                System.out.println("ERRO: Favor escolher uma opcao valida!");
                 break;
         }
     }
@@ -56,6 +56,7 @@ public class Metodos {
         double valorUnit = 0;
         int resposta = 0;
         int quant = 0;
+        double desconto = 0;
         double valorTotal = 0;
 
         System.out.println("Insira o nome da planta!");
@@ -65,13 +66,20 @@ public class Metodos {
         System.out.println("Digite o valor da planta vendida!");
         valorUnit = scan.nextDouble();
         valorTotal = quant * valorUnit;
-        System.out.printf("O valor total da venda foi de R$%.2f\n",valorTotal);
+
+        if(quant>10){
+            desconto = valorTotal * 0.05;
+            valorTotal -= desconto;
+            System.out.printf("O valor total da venda foi de R$%.2f (desconto de R$%.2f)\n",valorTotal, desconto);
+        }else{
+            System.out.printf("O valor total da venda foi de R$%.2f\n",valorTotal);
+        }
 
         System.out.println("Venda confirmada?");
         resposta = confirmarAcao();
 
         if(resposta == 1){
-            Planta nova = new Planta(planta, valorUnit, quant, valorTotal);
+            Planta nova = new Planta(planta, valorUnit, quant, valorTotal, desconto);
             registro.add(nova);
             System.out.println("Registro realizado com sucesso!");
         }else{
@@ -101,12 +109,39 @@ public class Metodos {
     }
 
     public static void mostrarVendas(){
+        double soma = somarRegistros();
+        double valorDesconto = somarDescontos();
+        int quantDesconto = 0;
+        if(registro.isEmpty()){
+            System.out.println("ATENCAO: Nenhum registro foi encontrado");
+            return;
+        }
         System.out.println("Registro:");
         for(int i = 0; i < registro.size(); i++){
-            System.out.printf("Venda %d:",i+1);
+            if(registro.get(i).getDesconto() > 0){
+                quantDesconto++;
+            }
+            System.out.printf("Venda %d: ",i+1);
             registro.get(i).mostrarPlanta();
         }
-        System.out.println("\n");
+        System.out.printf("O total das vendas foi de R$%.2f\n", soma);
+        System.out.printf("Houve descontos em %d vendas, totalizando R$%.2f de desconto\n", quantDesconto, valorDesconto);
+    }
+
+    public static double somarRegistros(){
+        double soma = 0;
+        for(int i = 0; i < registro.size(); i++){
+            soma += registro.get(i).getTotal();
+        }
+        return soma;
+    }
+
+    public static double somarDescontos(){
+        double descontos = 0;
+        for(int i = 0; i < registro.size(); i++){
+            descontos += registro.get(i).getDesconto();
+        }
+        return descontos;
     }
 
     public static int confirmarAcao(){

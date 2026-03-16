@@ -4,5 +4,4 @@ public class Principal {
         Metodos.chamarBoasVindas();
         Metodos.chamarMenu();
     }
-    
 }
