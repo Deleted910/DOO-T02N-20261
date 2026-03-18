@@ -17,7 +17,7 @@ public class Principal {
         do{
             System.out.println(" === Digite a opção desejada: === ");
             System.out.println("[1] Para abrir a calculadora.");
-            System.out.println("[2] Calcular troco.");
+            System.out.println("[2] Realizar venda.");
             System.out.println("[3] Exibir historico.");
             System.out.println("[4] Sair.");
             op = leia.nextInt();
@@ -118,7 +118,6 @@ public class Principal {
 
     public static double aplicar_desconto(double total) {
         double desconto = total * 0.05;
-        System.out.println(desconto);
         return desconto;
     }
     
