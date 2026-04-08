@@ -39,7 +39,7 @@ public class Loja {
 
     public void apresentarSe() {
         System.out.printf("Loja: %s | CNPJ: %s%n", nomeFantasia, cnpj);
-        System.out.printf("Endereço: %s, %s - %s, %s%n", rua, bairro, cidade);
+        System.out.printf("Endereço: %s, %s - %s%n", rua, bairro, cidade);
     }
 
     public String getNomeFantasia() {
