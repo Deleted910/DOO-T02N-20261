@@ -4,17 +4,14 @@ public class VinculoVen {
     private int idVen;
     private int idLo;
 
-    // Construtor vazio
     public VinculoVen() {
     }
 
-    // Construtor completo
     public VinculoVen(int idVen, int idLo) {
         this.idVen = idVen;
         this.idLo = idLo;
     }
 
-    // Getters e Setters
     public int getIdVen() {
         return idVen;
     }
