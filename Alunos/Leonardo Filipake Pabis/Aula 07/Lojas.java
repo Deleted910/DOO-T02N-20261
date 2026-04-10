@@ -4,9 +4,7 @@ public class Lojas {
     private String nomeFantasia;
     private String razaoSocial;
     private String cnpj;
-    private String cidade;
-    private String bairro;
-    private String rua;
+    private Endereco endereco;
     public ArrayList<Vendedor> vendedores = new ArrayList<>();
     public ArrayList<Clientes> clientes = new ArrayList<>();
 
@@ -14,11 +12,18 @@ public class Lojas {
 
     }
 
+    public Lojas(String nomeFantasia, String razaoSocial, String cnpj, String cidade, String bairro, String rua) {
+        setNomeFantasia(nomeFantasia);
+        setRazaoSocial(razaoSocial);
+        setCnpj(cnpj);
+        this.endereco = new Endereco(cidade, bairro, rua);
+    }
+
     public String getNomeFantasia() {
         return nomeFantasia;
     }
 
-    public void setNomeFantasia(String nomeFantasia) {
+    public final void setNomeFantasia(String nomeFantasia) {
         if ((nomeFantasia != null) && (!nomeFantasia.isBlank())){
             this.nomeFantasia = nomeFantasia;
         }
@@ -34,7 +39,7 @@ public class Lojas {
         return razaoSocial;
     }
 
-    public void setRazaoSocial(String razaoSocial) {
+    public final void setRazaoSocial(String razaoSocial) {
         if ((razaoSocial != null) && (!razaoSocial.isBlank())){
             this.razaoSocial = razaoSocial;
         }
@@ -49,7 +54,7 @@ public class Lojas {
         return cnpj;
     }
 
-    public void setCnpj(String cnpj) {
+    public final void setCnpj(String cnpj) {
         if ((cnpj != null) && (!cnpj.isBlank()) && (cnpj.length() == 14)){
             this.cnpj = cnpj;
         }
@@ -60,51 +65,6 @@ public class Lojas {
         }
     }
     
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        if ((cidade != null) && (!cidade.isBlank())){
-            this.cidade = cidade;
-        }
-        else {
-            System.out.println("Digite uma cidade válida:");
-            String novoCidade = Main.scan.nextLine();
-            setCidade(novoCidade);
-        }
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        if ((bairro != null) && (!bairro.isBlank())){
-            this.bairro = bairro;
-        }
-        else {
-            System.out.println("Digite um bairro válido:");
-            String novoBairro = Main.scan.nextLine();
-            setBairro(novoBairro);
-        }
-    }
-
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        if ((rua != null) && (!rua.isBlank())){
-            this.rua = rua;
-        }
-        else {
-            System.out.println("Digite uma rua válida:");
-            String novoRua = Main.scan.nextLine();
-            setRua(novoRua);
-        }
-    }
 
     public void contarClientes() {
         int quantidadeClientes = clientes.size();
@@ -117,7 +77,11 @@ public class Lojas {
     }
 
     public void apresentarse() {
-        String endereço = "Cidade: " + this.cidade + " | Bairro: " + this.bairro + " | Rua: " + this.rua;
-        System.out.println("Nome: "+ this.nomeFantasia + " | CNPJ: " + this.cnpj + " | "+ endereço);
+        System.out.println("Loja: "+ this.nomeFantasia + " | CNPJ: " + this.cnpj + " | "+ this.endereco);
+    }
+
+    public static void main(String[] args) {
+        Lojas loja1 = new Lojas("Lojinha", "LOJINHARAZAOSOCIAL", "12345676543211", "Cafelandia", "Bairro nobre", "Rua rapida");
+        loja1.apresentarse();
     }
 }

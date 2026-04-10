@@ -1,6 +1,6 @@
 
 public class Gerente extends Funcionario {
-    static private final double bonus = 0.35;
+    
     public Gerente (){
 
     }
@@ -14,8 +14,9 @@ public class Gerente extends Funcionario {
         System.out.println("Gerente: " + this.getNome() + " | Idade: " + this.getIdade() + " | Loja: " + loja.getNomeFantasia());
     }
 
+    @Override
     public double getBonus() {
-        return this.bonus;
+        return 0.35;
     }
 
     public static void main(String[] args) {
@@ -29,8 +30,9 @@ public class Gerente extends Funcionario {
         g.receberSalario(1000);
         g.receberSalario(1500);
         g.receberSalario(1250);
+        System.out.println(g.getBonus());
         System.out.println(g.calcularMediaSalarial());
-        System.out.println(g.calcularBonusSalarial(bonus));
+        System.out.println(g.calcularBonusSalarial());
         
     }
 }

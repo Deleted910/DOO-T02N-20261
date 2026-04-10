@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class Funcionario extends Pessoa {
+public abstract class Funcionario extends Pessoa {
     private double salarioBase;
     private double salarioRecebido;
     public Lojas loja;
-    private ArrayList<Double> salarios = new ArrayList<>();
+    private final ArrayList<Double> salarios = new ArrayList<>();
 
     public Funcionario() {
 
@@ -16,11 +16,13 @@ public class Funcionario extends Pessoa {
         setSalarioBase(salarioBase);
     }
 
+    public abstract double getBonus();
+
     public String getLoja() {
     return loja.getNomeFantasia();
     }
 
-    public void setLoja(Lojas loja){
+    public final void setLoja(Lojas loja){
         this.loja = loja;
     }
 
@@ -28,7 +30,7 @@ public class Funcionario extends Pessoa {
         return salarioBase;
     }
 
-    public void setSalarioBase(double salarioBase) {
+    public final void setSalarioBase(double salarioBase) {
         if (salarioBase > 0) {
             this.salarioBase = salarioBase;
         }
@@ -56,8 +58,8 @@ public class Funcionario extends Pessoa {
         return media;
     }
 
-    public double calcularBonusSalarial(double bonus) {
-        double bonusS = this.salarioBase * bonus;
+    public double calcularBonusSalarial() {
+        double bonusS = this.salarioBase * this.getBonus();
         return bonusS;
     }
     

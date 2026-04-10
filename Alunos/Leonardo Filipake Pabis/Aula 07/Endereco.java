@@ -11,9 +11,9 @@ public class Endereco {
     }
 
     public Endereco (String cidade, String bairro, String rua) {
-        setCidade(cidade);
-        setBairro(bairro);
-        setRua(rua);
+        this.setCidade(cidade);
+        this.setBairro(bairro);
+        this.setRua(rua);
     }
 
     public String getEstado() {
@@ -35,7 +35,7 @@ public class Endereco {
         return cidade;
     }
 
-    public void setCidade(String cidade) {
+    public final void setCidade(String cidade) {
     if ((cidade != null) && (!cidade.isBlank())){
         this.cidade = cidade;
     }
@@ -50,7 +50,7 @@ public class Endereco {
         return bairro;
     }
 
-    public void setBairro(String bairro) {
+    public final void setBairro(String bairro) {
     if ((bairro != null) && (!bairro.isBlank())){
         this.bairro = bairro;
     }
@@ -65,7 +65,7 @@ public class Endereco {
         return rua;
     }
 
-    public void setRua(String rua) {
+    public final void setRua(String rua) {
         if ((rua != null) && (!rua.isBlank())){
             this.rua = rua;
         }

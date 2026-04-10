@@ -7,8 +7,8 @@ public class Pessoa {
 
     }
     public Pessoa(String nome, int idade, String cidade, String bairro, String rua){
-        setNome(nome);
-        setIdade(idade);
+        this.setNome(nome);
+        this.setIdade(idade);
         this.endereco = new Endereco(cidade, bairro, rua);
     }
 
@@ -16,7 +16,7 @@ public class Pessoa {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public final void setNome(String nome) {
         if ((nome != null) && (!nome.isBlank())){
             this.nome = nome;
         }
@@ -31,7 +31,7 @@ public class Pessoa {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public final void setIdade(int idade) {
         if (idade > 0){
             this.idade = idade;
         }

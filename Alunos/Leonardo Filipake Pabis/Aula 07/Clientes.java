@@ -1,93 +1,23 @@
-public class Clientes {
-
-    private String nome;
-    private int idade;
-    private String cidade;
-    private String bairro;
-    private String rua;
+public class Clientes extends Pessoa {
 
     public Clientes() {
 
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        if ((nome != null) && (!nome.isBlank())){
-            this.nome = nome;
-        }
-        else {
-            System.out.println("Digite um nome válido:");
-            String novoNome = Main.scan.nextLine();
-            setNome(novoNome);
-        }
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        if (idade > 0){
-            this.idade = idade;
-        }
-        else {
-            System.out.println("Digite uma idade válida:");
-            int novaIdade = Main.scan.nextInt();
-            Main.scan.nextLine();
-            setIdade(novaIdade);
-        }
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-    if ((cidade != null) && (!cidade.isBlank())){
-        this.cidade = cidade;
-    }
-    else {
-        System.out.println("Digite uma cidade válida:");
-        String novoCidade = Main.scan.nextLine();
-        setCidade(novoCidade);
-    }
-}
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-    if ((bairro != null) && (!bairro.isBlank())){
-        this.bairro = bairro;
-    }
-    else {
-        System.out.println("Digite um bairro válido:");
-        String novoBairro = Main.scan.nextLine();
-        setBairro(novoBairro);
-    }
-}
-
-    public String getRua() {
-        return rua;
-    }
-
-    public void setRua(String rua) {
-        if ((rua != null) && (!rua.isBlank())){
-            this.rua = rua;
-        }
-        else {
-            System.out.println("Digite uma rua válida:");
-            String novoRua = Main.scan.nextLine();
-            setRua(novoRua);
-        }
+    public Clientes(String nome, int idade, String cidade, String bairro, String rua) {
+        super(nome, idade, cidade, bairro, rua);
     }
 
     public void apresentarse() {
-        System.out.println("Cliente: "+ this.nome + " | Idade: "+ this.idade);
+        System.out.println("Cliente: "+ this.getNome() + " | Idade: "+ this.getIdade());
     }
     
+
+    public static void main(String[] args) {
+        Clientes cliente10 = new Clientes("Eduardo", 30, "Casc", "gnjfe", "ngvf");
+        cliente10.apresentarse();
+        System.out.println(cliente10.getEndereco().getCidade());
+        System.out.println(cliente10.getEndereco().getBairro());
+        System.out.println(cliente10.getEndereco().getRua());
+    }
 }
