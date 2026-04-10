@@ -9,7 +9,10 @@ public class Item {
     }
 
     public Item (int id, String nome, String tipo, double Valor) {
-
+        setId(id);
+        setNome(nome);
+        setTipo(tipo);
+        setValor(Valor);
     }
 
     public int getId() {
@@ -72,5 +75,8 @@ public class Item {
         }
     }
 
+    public void gerarDescicao() {
+        System.out.println("ID: " + id + " | Item:" + nome + " | Tipo: " + tipo + " | Valor: " + valor);
+    }
 
 }
