@@ -17,7 +17,11 @@ public class Pedido {
     }
 
     public Pedido(int id, Clientes cliente, Vendedor vendedor, Lojas loja) {
-
+        setId(id);
+        setCliente(cliente);
+        setVendedor(vendedor);
+        setLoja(loja);
+        setDataCriacao();
     }
 
     public int getId() {
@@ -48,9 +52,25 @@ public class Pedido {
         return dataPagamento;
     }
 
-    public void setDataPagamento(String dataPagamentoString) {
-        LocalDate dataPagamentoDate = Date.stringToDate(dataPagamentoString);
-        this.dataPagamento = dataPagamentoDate;
+    public void setDataPagamento() {
+        int escolha=0;
+        do { 
+            System.out.println("1 - Agendar pagamento\n2 - Pagar Agora");
+            escolha = Main.scan.nextInt();
+            Main.scan.nextLine();
+            if (escolha == 1){
+            System.out.println("Para qual data deseja agendar? (dd/mm/aaaa)");
+            String data = Main.scan.nextLine();
+            LocalDate dataCerta = Date.stringToDate(data);
+            this.dataPagamento = dataCerta;
+            }
+            else if (escolha == 2){
+                this.dataPagamento = Date.dataAtualToFormat();
+            }else {
+                System.out.println("Digite uma opcão válida:");
+            }
+        } while (escolha != 1 || escolha != 2);
+       
     }
 
     public LocalDate getDataVencimentoReserva() {

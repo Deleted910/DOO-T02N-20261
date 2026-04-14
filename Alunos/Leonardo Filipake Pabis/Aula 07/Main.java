@@ -65,6 +65,16 @@ public class Main {
         System.out.println(gerente2.calcularMediaSalarial());
         System.out.println(gerente2.calcularBonusSalarial());
 
+        Item item1 = new Item(1, "Rosácea", "flor rosa", 10.0);
+        Item item2 = new Item(10, "Girassol", "flor amarela", 25.0);
+
+        System.out.println(item1.gerarDescicao());
+        System.out.println(item2.gerarDescicao());
+
+        Pedido pedido5 = new Pedido(5, cliente10, vend2, loja1);
+
+
+        
         menu();
 
     }
