@@ -1,17 +1,7 @@
-public class Cliente {
+public class Cliente extends Pessoa {
 
-    private String nome;
-    private int idade;
-    private String cidade;
-    private String bairro;
-    private String rua;
-
-    public Cliente(String nome, int idade, String cidade, String bairro, String rua) {
-        this.nome = nome;
-        this.idade = idade;
-        this.cidade = cidade;
-        this.bairro = bairro;
-        this.rua = rua;
+    public Cliente(String nome, int idade, Endereco endereco) {
+        super(nome, idade, endereco);
     }
 
     public void apresentarse() {

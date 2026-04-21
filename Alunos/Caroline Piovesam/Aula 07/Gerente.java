@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
-public class Vendedor extends Pessoa {
+public class Gerente extends Pessoa {
 
     private ArrayList<Double> SalarioRecebido = new ArrayList<>();
     private String loja;
     private double salarioBase;
 
-    public Vendedor(String nome, int idade, String loja,
-            double salarioBase, Endereco endereco) {
+    public Gerente(String nome, int idade, Endereco endereco, String loja,
+            double salarioBase) {
 
         super(nome, idade, endereco);
         this.loja = loja;
@@ -17,7 +17,7 @@ public class Vendedor extends Pessoa {
 
     public void apresentarse() {
 
-        System.out.println("Nome vendedor: " + this.nome + " | " + "Idade: "
+        System.out.println("Nome gerente: " + this.nome + " | " + "Idade: "
                 + this.idade + " | " + "Loja: " + this.loja);
         System.out.println();
     }
@@ -37,6 +37,6 @@ public class Vendedor extends Pessoa {
     }
 
     public double calcularBonus() {
-        return this.salarioBase * 0.2;
+        return this.salarioBase * 0.35;
     }
 }
