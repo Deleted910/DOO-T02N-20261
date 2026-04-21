@@ -16,41 +16,70 @@ public class CalculadoraMenu {
     }
     
     public static void ValidarResp(int resp) {
+        switch (resp) {
+            case 1:
+                limparConsole();
+                PreçoTotal();
+                aguardarEnter();
+                break;
+            case 2:
+                limparConsole();
+                CalcularTroco();
+                aguardarEnter();
+                break;
+            case 3:
+                limparConsole();
+                exibirHistorico();
+                aguardarEnter();
+                break;
+            case 4:
+                limparConsole();
+                sobreLoja();
+                break;
+            case 0:
+                limparConsole();
+                break;
         
-        if (resp == 1) {
-            PreçoTotal();
-        } else if (resp == 2) {
-            CalcularTroco();
-        } else if (resp == 3) {
-            exibirHistorico();
-        }else if (resp == 4) {
-            sobreLoja();
+            default:
+                System.out.println("Insira um valor valido!!!7");
+                break;
         }
     }
 
     public static void validarLoja(int respL){
-        if (respL == 1) {
-            System.out.println("-------Lista-de-funcionarios-------");
-            for(int x = 0; x < 3; x++){
-                Vendedor v = listaDeVendedores.get(x);
-                v.apresentarse();
-                v.calcularMedia();
-                v.calcularBonus();
-            System.out.println("-----------------------------------");
-            }
-        } else if (respL == 2) {
-            System.out.println("-------Lista-de-Clientes-------");
-            for(int x = 0; x < listaDeClientes.size(); x++){
-                Cliente c = listaDeClientes.get(x);
-                c.apresentarse();
-            }
-        } else if (respL == 3) {
-            System.out.println("-------Informações-da-Loja-------");
-            minhaLoja.apresentarse();
-            minhaLoja.contarClientes();
-            minhaLoja.contarVendedores();
-            System.out.println("----------------------------------");
-        }    
+        switch (respL) {
+            case 1:
+                limparConsole();
+                System.out.println("-------Lista-de-funcionarios-------");
+                for(int x = 0; x < 3; x++){
+                    Vendedor v = listaDeVendedores.get(x);
+                    v.apresentarse();
+                    v.calcularMedia();
+                    v.calcularBonus();
+                System.out.println("-----------------------------------");
+                }
+                break;
+            case 2:
+                limparConsole();
+                System.out.println("-------Lista-de-Clientes-------");
+                for(int x = 0; x < listaDeClientes.size(); x++){
+                    Cliente c = listaDeClientes.get(x);
+                    c.apresentarse();
+                }
+                break;
+            case 3:
+                limparConsole();
+                System.out.println("-------Informações-da-Loja-------");
+                minhaLoja.apresentarse();
+                minhaLoja.contarClientes();
+                minhaLoja.contarVendedores();
+                System.out.println("----------------------------------");
+                break;
+        
+            default:
+                System.out.println("Insira um valor valido!!!");
+                break;
+        }
     }
 
     public static void sobreLoja(){
@@ -70,8 +99,9 @@ public class CalculadoraMenu {
     public static void Menu() {
         int resp = 1000;
         do {
+            limparConsole();
             System.out.println("-----------Menu-----------");
-            System.out.println("[1] - Calcular Preço Total");
+            System.out.println("[1] - Pedidos");
             System.out.println("[2] - Calcular Troco");
             System.out.println("[3] - Exibir Historico");
             System.out.println("[4] - Sobre a Loja");
@@ -160,29 +190,39 @@ public class CalculadoraMenu {
     }
 
     public static void criaClasses(){
-        Vendedor v1 = new Vendedor("José", 30, "My Plant", "Cascavel", "Centro", "Rua Paraná", 2000.0, new double[]{1500.0, 1800.0, 2100.0});
-        Vendedor v2 = new Vendedor("Maria",19,"My Plant", "Cascavel", "centro", "Rua B", 1800.0, new double[]{1500.0, 1800.0, 2100.0});
-        Vendedor v3 = new Vendedor("Mauro", 60, "My Plant", "Capitão", "Centro", "Rua C", 2000.0, new double[]{1500.0, 1800.0, 2100.0});
-        Vendedor[] listaVendedores = new Vendedor[]{v1, v2, v3};
+        //Vendedor v1 = new Vendedor("José", 30, "My Plant", "Cascavel", "Centro", "Rua Paraná", 2000.0, new double[]{1500.0, 1800.0, 2100.0});
+        //Vendedor v2 = new Vendedor("Maria",19,"My Plant", "Cascavel", "centro", "Rua B", 1800.0, new double[]{1500.0, 1800.0, 2100.0});
+        //Vendedor v3 = new Vendedor("Mauro", 60, "My Plant", "Capitão", "Centro", "Rua C", 2000.0, new double[]{1500.0, 1800.0, 2100.0});
+        //Vendedor[] listaVendedores = new Vendedor[]{v1, v2, v3};
 
-        listaDeVendedores.add(v1);
-        listaDeVendedores.add(v2);
-        listaDeVendedores.add(v3);
+        //listaDeVendedores.add(v1);
+        //listaDeVendedores.add(v2);
+        //listaDeVendedores.add(v3);
         //----------------------------
-        Cliente c1 = new Cliente("Carlos", 19, "Cascavel", "bairro 1", "Rua 1");
-        Cliente c2 = new Cliente("Gabriela", 18, "Cascavel", "Bairro 2", "Rua 2");
-        Cliente c3 = new Cliente("Adriani", 38, "Cascavel", "Bairro 1", "Rua 2");
-        Cliente[] listaClientes = new Cliente[]{c1, c2, c3};
+        //Cliente c1 = new Cliente("Carlos", 19, "Cascavel", "bairro 1", "Rua 1");
+        //Cliente c2 = new Cliente("Gabriela", 18, "Cascavel", "Bairro 2", "Rua 2");
+        //Cliente c3 = new Cliente("Adriani", 38, "Cascavel", "Bairro 1", "Rua 2");
+       //Cliente[] listaClientes = new Cliente[]{c1, c2, c3};
 
-        listaDeClientes.add(c1);
-        listaDeClientes.add(c2);
-        listaDeClientes.add(c3);
+        //listaDeClientes.add(c1);
+        //listaDeClientes.add(c2);
+        //listaDeClientes.add(c3);
         //----------------------------
-        minhaLoja = new Loja("My Plant", "Flores LTDA", "00.000/0001-00", "Cascavel", "Centro", "Rua C", listaVendedores, listaClientes);
+        //minhaLoja = new Loja("My Plant", "Flores LTDA", "00.000/0001-00", "Cascavel", "Centro", "Rua C", listaVendedores, listaClientes);
     }
 
     public static void registrarVenda(int quantPlant, double resultTotal, double valorDesc, LocalDate hoje) {
         Historico novaVenda = new Historico(quantPlant, resultTotal, valorDesc, hoje);
         historicoVendas.add(novaVenda);
+    }
+
+    public static void limparConsole() {
+    
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+    }
+    public static void aguardarEnter() {
+    System.out.println("\nPresione Enter para continuar...");
+    scan.nextLine();
     }
 }
