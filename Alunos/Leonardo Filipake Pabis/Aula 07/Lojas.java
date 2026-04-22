@@ -82,7 +82,7 @@ public class Lojas {
     }
 
     public void apresentarse() {
-        System.out.println("\nLoja: "+ this.nomeFantasia + " | CNPJ: " + this.cnpj + " | "+ this.endereco);
+        System.out.printf("\nLoja: "+ this.nomeFantasia + " | CNPJ: " + this.cnpj + " | "+ this.endereco);
     }
 
     public Gerente getGerente() {

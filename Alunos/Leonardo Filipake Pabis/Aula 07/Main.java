@@ -375,6 +375,9 @@ public class Main {
         for (int i = 0; i < pedidosTotais.size(); i++){
             System.out.println(pedidosTotais.get(i).gerarDescricaoVenda()+" | Loja: "+pedidosTotais.get(i).getLoja().getNomeFantasia()+" | Cliente: "+pedidosTotais.get(i).getCliente().getNome()+" | Data vencimento: "+pedidosTotais.get(i).getDataVencimentoReservaString()+" | Data pagamento: "+pedidosTotais.get(i).getDataPagamentoString());
         }
+        if (pedidosTotais.isEmpty()){
+            System.out.println("Nenhum pedido registrado");
+        }
         VoltarMenu();
     }
 
