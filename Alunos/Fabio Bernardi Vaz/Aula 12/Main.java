@@ -32,10 +32,10 @@ public class Main {
         List<String> palavras = Arrays.asList("se", "talvez", "hoje", "sábado", "se", "quarta", "sábado");
         Map<String, Long> contagemPalavras = palavras.stream()
                 .collect(Collectors.groupingBy(palavra -> palavra, Collectors.counting()));
-        System.out.println("Contagem de palavras: " + contagemPalavras);
+        System.out.println("Contagem da ocorrencia de palavras: " + contagemPalavras);
 
 
-        // ATV4 - Filtrar produtos com preço maior que R$ 100,00 (Usando Map no lugar da classe)
+        // ATV4 - Filtrar produtos com preço maior que R$ 100,00 
         System.out.println("\n// ATV4");
         Map<String, Double> produtos = Map.of(
                 "Mouse", 45.50,
@@ -50,7 +50,7 @@ public class Main {
         System.out.println("Produtos acima de R$ 100,00: " + produtosMaisDeCem);
 
 
-        // ATV5 - Soma do valor total dos produtos (Usando os valores do Map)
+        // ATV5 - Soma do valor total dos produtos 
         System.out.println("\n// ATV5");
         double somaTotal = produtos.values().stream()
                 .mapToDouble(Double::doubleValue)
